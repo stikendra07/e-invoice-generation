@@ -46,93 +46,93 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <label class="col-form-label" for="gstn" style="font-weight:500;">GSTN:</label>
-                                        <input type="text" class="form-control" name="gstn" id="gstn" placeholder="Enter GST Number" ng-model="gstn">
+                                        <input type="text" class="form-control" name="gstn" id="gstn" placeholder="Enter GST Number" ng-model="gstn" required>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <label class="col-form-label" for="dog" style="font-weight:500;">Date Of Generation :</label>
-                                        <input type="datetime-local" name="dog" class="form-control" id="dog" ng-model="dog">
+                                        <input type="datetime-local" name="dog" class="form-control" id="dog" ng-model="dog" required>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">Seller Name:</label>
-                                        <input type="text" name="sellerName" class="form-control" placeholder="Enter Seller Name">
+                                        <input type="text" name="sellerName" class="form-control" placeholder="Enter Seller Name" required>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">Seller ID:</label>
-                                        <input type="text" name="sellerId" class="form-control" placeholder="Enter Seller ID">
+                                        <input type="text" name="sellerId" class="form-control" placeholder="Enter Seller ID" required>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">Buyer Name:</label>
-                                        <input type="text" name="buyerName" class="form-control" placeholder="Enter Buyer Name">
+                                        <input type="text" name="buyerName" class="form-control" placeholder="Enter Buyer Name" required>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">Buyer Phone:</label>
-                                        <input type="text" name="buyerMo" class="form-control" placeholder="Enter Phone No">
+                                        <input type="text" name="buyerMo" class="form-control" placeholder="Enter Phone No" required>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">Product 1:</label>
-                                        <input type="text" name="proName1" class="form-control" placeholder="Enter Product Name">
+                                        <input type="text" name="proName1" class="form-control" placeholder="Enter Product Name" required>
                                     </div>
                                     <div class="col-md-2 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">Quantity:</label>
-                                        <input type="number" name="qty1" id="qty1" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()">
+                                        <input type="number" name="qty1" id="qty1" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()" required>
                                     </div>
                                     <div class="col-md-2 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">HSN</label>
-                                        <input type="text" name="hsn1" class="form-control" placeholder="HSN">
+                                        <input type="text" name="hsn1" class="form-control" placeholder="HSN" required>
                                     </div>
                                     <div class="col-md-2 mb-4">
                                         <label class="col-form-label" style="font-weight:500;"> Amount</label>
-                                        <input type="number" id="amount1" name="amount1" class="form-control" placeholder="Enter amount" oninput="calculateAmt()">
+                                        <input type="number" id="amount1" name="amount1" class="form-control" placeholder="Enter amount" oninput="calculateAmt()" required>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">Product 2:</label>
-                                        <input type="text" name="proName2" class="form-control" placeholder="Enter Product Name">
+                                        <input type="text" name="proName2" class="form-control" placeholder="Enter Product Name" required>
                                     </div>
                                     <div class="col-md-2 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">Quantity:</label>
-                                        <input type="number" name="qty2" id="qty2" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()">
+                                        <input type="number" name="qty2" id="qty2" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()" required>
                                     </div>
                                     <div class="col-md-2 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">HSN</label>
-                                        <input type="text" name="hsn2" class="form-control" placeholder="HSN">
+                                        <input type="text" name="hsn2" class="form-control" placeholder="HSN" required>
                                     </div>
                                     <div class="col-md-2 mb-4">
                                         <label class="col-form-label" style="font-weight:500;"> Amount</label>
-                                        <input type="number" id="amount2" name="amount2" class="form-control" placeholder="Enter amount" oninput="calculateAmt()">
+                                        <input type="number" id="amount2" name="amount2" class="form-control" placeholder="Enter amount" oninput="calculateAmt()" required>
                                     </div>
                                     
                                     <div class="col-md-6 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">Product 3:</label>
-                                        <input type="text" name="proName3" class="form-control" placeholder="Enter Product Name">
+                                        <input type="text" name="proName3" class="form-control" placeholder="Enter Product Name" required>
                                     </div>
                                     <div class="col-md-2 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">Quantity:</label>
-                                        <input type="number" name="qty3" id="qty3" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()">
+                                        <input type="number" name="qty3" id="qty3" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()" required>
                                     </div>
                                     <div class="col-md-2 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">HSN</label>
-                                        <input type="text" name="hsn3" class="form-control" placeholder="HSN">
+                                        <input type="text" name="hsn3" class="form-control" placeholder="HSN" required>
                                     </div>
                                     <div class="col-md-2 mb-4">
                                         <label class="col-form-label" style="font-weight:500;"> Amount</label>
-                                        <input type="number" id="amount3" name="amount3" class="form-control" placeholder="Enter amount" oninput="calculateAmt()">
+                                        <input type="number" id="amount3" name="amount3" class="form-control" placeholder="Enter amount" oninput="calculateAmt()" required>
                                     </div>
                                     
                                     <div class="col-md-6 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">Product 4:</label>
-                                        <input type="text" name="proName4" class="form-control" placeholder="Enter Product Name">
+                                        <input type="text" name="proName4" class="form-control" placeholder="Enter Product Name" required>
                                     </div>
                                     <div class="col-md-2 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">Quantity:</label>
-                                        <input type="number" name="qty4" id="qty4" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()">
+                                        <input type="number" name="qty4" id="qty4" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()" required>
                                     </div>
                                     <div class="col-md-2 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">HSN</label>
-                                        <input type="text" name="hsn4" class="form-control" placeholder="HSN">
+                                        <input type="text" name="hsn4" class="form-control" placeholder="HSN" required>
                                     </div>
                                     <div class="col-md-2 mb-4">
                                         <label class="col-form-label" style="font-weight:500;"> Amount</label>
-                                        <input type="number" id="amount4" name="amount4" class="form-control" placeholder="Enter amount" oninput="calculateAmt()">
+                                        <input type="number" id="amount4" name="amount4" class="form-control" placeholder="Enter amount" oninput="calculateAmt()" required>
                                     </div>
                                     
                                     
@@ -144,7 +144,7 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">Email:</label>
-                                        <input type="text" name="email" class="form-control" placeholder="Enter Email">
+                                        <input type="text" name="email" class="form-control" placeholder="Enter Email" required>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <label class="col-form-label" style="font-weight:500;">Total Amount</label>
