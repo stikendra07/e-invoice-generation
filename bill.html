@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GST e-invoice system</title>
+    <link href="css/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="css/assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="gst_logo.jpg" rel="icon" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+    <title>Invoice Generation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color:black;
+        }
+
+        table {
+            width: 100%;
+            /* border-collapse: collapse; */
+            /* margin-bottom: 20px; */
+        }
+
+        table, th, td {
+            /* border: 1px solid #ddd; */
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        /* loader section */
+        
+    </style>
+</head>
+
+<body ng-app="tdipllp">
+    <div class="" style="background:lavenderblush;" ng-controller="resultscontroller" ng-cloak>
+        <div class="container-fluid" style="background:lavender;">
+            <div style="height: 100px;"></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-sm-12">
+                    <div class="card">
+                        <div class="card-body p-5 md-p-5" style="height:150vh">
+                            <div class="text-center" style="margin-bottom: 70px;">
+                                <h4 class="header-title"><u style="font-size:33px" id="head_text">Invoice</u></h4> 
+                                <hr style="margin: 0;">
+                                <p style="font-size:10px; margin-top: 0;color:#848482">* if the Invoice Reference Number is generated the seller and related authority are not resposible for further T&C !</p>
+                            </div>
+                            
+
+                            <div class=> 
+                                <table >
+                                   
+                                    <tr >
+                                      <td >IRN No</td>
+                                      <td id="irn" colspan="4"><a href="">Verification Required</a></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                      <td>GST Number</td>
+                                      <td id="gstn" colspan="4">GSTN87634529087</td>
+                                      
+                                    </tr>
+                                    <tr>
+                                      <td>Date</td>
+                                      <td colspan="4" id="dog1"></td>
+                                      
+                                    </tr>
+                                  </table>               
+                                <table>
+                                    <tr>
+                                        <th colspan="4">Buyer Details</th>
+                                        <th colspan="4">Seller Details</th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" >
+                                            <p id="buyerName"  style="margin: 0;"></p>
+                                            <p id="buyerMo" style="margin: 0;"></p>
+                                            <p style="margin: 0;"> Plot 123/7 Main road, Yamuna Bhavan, Dakshin Gangotri Bhilai, C.G</p>
+
+                                        </td>
+                                        <td colspan="4" >
+                                            <p id="sellerName" style="margin: 0;"></p>
+                                            <p id="sellerId" style="margin: 0;"></p>
+                                            <p style="margin: 0;" id="email"> </p>
+                                            <p style="margin: 0;"> 456 Gandhi Market Rd, Alakhnanda complex,Raipur Chhattishgarh</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                        
+                                <table>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>HSN Code</th>
+                                        <th>Quantity</th>
+                                        <th>Unit Price</th>
+                                        <th>Total</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p id="proName1"></p>
+                                        </td>
+                                        <td>
+                                            <p id="hsn1"></p>
+                                        </td>
+                                        <td>
+                                            <p id="qty1"></p>
+                                        </td>
+                                        <td>
+                                            <p id="amount1"></p>
+                                        </td>
+                                        <td>
+                                            <p id="t_amount1"></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p id="proName2"></p>
+                                        </td>
+                                        <td>
+                                            <p id="hsn2"></p>
+                                        </td>
+                                        <td>
+                                            <p id="qty2"></p>
+                                        </td>
+                                        <td>
+                                            <p id="amount2"></p>
+                                        </td>
+                                        <td>
+                                            <p id="t_amount2"></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p id="proName3"></p>
+                                        </td>
+                                        <td>
+                                            <p id="hsn3"></p>
+                                        </td>
+                                        <td>
+                                            <p id="qty3"></p>
+                                        </td>
+                                        <td>
+                                            <p id="amount3"></p>
+                                        </td>
+                                        <td>
+                                            <p id="t_amount3"></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p id="proName4"></p>
+                                        </td>
+                                        <td>
+                                            <p id="hsn4"></p>
+                                        </td>
+                                        <td>
+                                            <p id="qty4"></p>
+                                        </td>
+                                        <td>
+                                            <p id="amount4"></p>
+                                        </td>
+                                        <td>
+                                            <p id="t_amount4"></p>
+                                        </td>
+                                    </tr>
+                                </table>
+                        
+                                <table>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Taxable Amount</th>
+                                        <th>Purchase Amount</th>
+                                        <th>Total Amount</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p id="dog2"></p>
+                                        </td>
+                                        <td>
+                                            <p id="taxable_amount"></p>
+                                        </td>
+                                        <td>
+                                            <p id="tAmount"></p>
+                                        </td>
+                                        <td>
+                                            <p id="total_amount"></p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="form-group row mb-4">
+                                    <div class="col-md-12 text-right">
+                                        <button class="btn btn-primary"
+                                         id="e_sign" >Click To Verify</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- QR Code Section -->
+  <div style="position: absolute; top: 140px; right: 330px; display:none" id="qr_code">
+      <img src="sample_qr_code.png" alt="QR Code" width="100" height="100">
+  </div>
+  <div style="position: absolute; bottom: 140px; right: 300px; display: flex; align-items: center; display:none" id="names">
+      <div>
+          <img src="e-sign.png" alt="Digital Signature" width="100" height="100" style="margin-left: 40px;">
+          <p style="margin: 0; font-weight: bold;">Digital Signature Verified</p>
+          <p style="margin: 0;"><b>Mrs.</b> S.N Balaswami </p>
+          <p style="margin: 0;" id="digisign"></p>
+      </div>
+  </div>
+
+<div style="height: 20px;background:lavender"></div>
+<!-- Footer Section -->
+<footer class="footer text-center" style="padding: 10px; width: 70%; position: absolute; bottom: 0;font-size:16px">
+    <p>&copy; 2024 GST e-invoice System. All rights reserved.</p>
+</footer>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body d-flex align-items-center justify-content-center" style="height:30vh">
+                <div class="loader">
+                    <i class="fa-solid fa-spinner fa-spin-pulse" style="font-size:60px;color:green; margin-left:100px"></i>
+                    <p style="text-align: center; margin-top: 10px;">Verifying Your Invoice please wait .....</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-kJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha384-kJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+           $('#e_sign').on('click', function() {
+        // Show the Bootstrap modal
+        $('#exampleModalCenter').modal('show'); 
+        setTimeout(function() {
+            // Show the Bootstrap modal
+            $('#e_sign').hide();
+            $('#irn').text('IRN5389765120');
+            $('#head_text').text('E-Invoice');
+
+            $('#exampleModalCenter').modal('hide');
+            $('#qr_code').show();
+            $('#names').show();
+           
+        }, 5000);
+    });
+});
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('gstn');
+        $('#gstn').text(username);
+        
+      
+
+        var inputDate = urlParams.get('dog');
+        var formattedDate = formatDate(inputDate);
+        $('#dog1').text(formattedDate);
+        $('#dog2').text(formattedDate);
+
+
+        const sellerName = urlParams.get('sellerName');
+
+         $('#digisign').text('MD & CEO '+sellerName);
+         $('#sellerName').text(sellerName);
+         
+        const sellerId = urlParams.get('sellerId');
+         $('#sellerId').text(sellerId);
+        const buyerName = urlParams.get('buyerName');
+         $('#buyerName').text(buyerName);
+        const buyerMo = urlParams.get('buyerMo');
+         $('#buyerMo').text(buyerMo);
+        //  product 1
+        const proName1 = urlParams.get('proName1');
+         $('#proName1').text(proName1);
+         var qty1 = urlParams.get('qty1');
+         $('#qty1').text(qty1);
+         var hsn1 = urlParams.get('hsn1');
+         $('#hsn1').text(hsn1);
+         const Amount1 = urlParams.get('amount1');
+         $('#amount1').text('₹'+ Amount1);
+         $('#t_amount1').text('₹'+ qty1*Amount1);
+         //  product 2
+         var proName2 = urlParams.get('proName2');
+         $('#proName2').text(proName2);
+         var qty2 = urlParams.get('qty2');
+         $('#qty2').text(qty2);
+         var hsn2 = urlParams.get('hsn2');
+         $('#hsn2').text(hsn1);
+         const Amount2 = urlParams.get('amount2');
+         $('#amount2').text('₹'+ Amount2);
+         $('#t_amount2').text('₹'+ qty2*Amount2);
+         //  product 3
+         var proName3 = urlParams.get('proName3');
+         $('#proName3').text(proName3);
+         var qty3 = urlParams.get('qty3');
+         $('#qty3').text(qty3);
+         var hsn3 = urlParams.get('hsn3');
+         $('#hsn3').text(hsn3);
+         var Amount3 = urlParams.get('amount3');
+         $('#amount3').text('₹'+ Amount3);
+         $('#t_amount3').text('₹'+ qty3*Amount3);
+         //  product 4
+         var proName4 = urlParams.get('proName4');
+         $('#proName4').text(proName4);
+         var qty4 = urlParams.get('qty4');
+         $('#qty4').text(qty4);
+         var hsn4 = urlParams.get('hsn4');
+         $('#hsn4').text(hsn4);
+         var Amount4 = urlParams.get('amount4');
+         $('#amount4').text('₹'+ Amount4);
+         $('#t_amount4').text('₹'+ qty4*Amount4);
+
+         const email = urlParams.get('email');
+         $('#email').text(email);
+        const tAmount = urlParams.get('tAmount');
+        $('#tAmount').text('₹'+tAmount);
+        
+        $('#taxable_amount').text('₹179.00');
+        var taxable_amount = parseInt(document.getElementById("taxable_amount").value);
+        var total_amount = parseInt(tAmount) + 179;
+        $('#total_amount').text('₹'+ total_amount+'.00');
+      
+
+
+  function formatDate(inputDate) {
+    var date = new Date(inputDate);
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
+    var month = monthNames[date.getMonth()];
+    var day = date.getDate();
+    var year = date.getFullYear();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    minutes = (minutes < 10 ? '0' : '') + minutes;
+    var formattedDate = month + " " + day + ", " + year + " AT " + hours + ":" + minutes;
+    return formattedDate;
+}
+
+
+    </script>
+</body>
+
+</html>
