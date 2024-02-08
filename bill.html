@@ -217,8 +217,7 @@
         </div>
     </div>
 <!-- QR Code Section -->
-  <div style="position: absolute; top: 140px; right: 330px; display:none" id="qr_code">
-      <img src="sample_qr_code.png" alt="QR Code" width="100" height="100">
+  <div style="position: absolute; top: 100px; right: 20px; display:none;width:30%" id="qr_code">
   </div>
   <div style="position: absolute; bottom: 140px; right: 300px; display: flex; align-items: center; display:none" id="names">
       <div>
@@ -254,6 +253,7 @@
 </div>
 
 <!-- jQuery CDN -->
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-kJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha384-kJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -278,8 +278,8 @@
     });
 });
         const urlParams = new URLSearchParams(window.location.search);
-        const username = urlParams.get('gstn');
-        $('#gstn').text(username);
+        const gstno = urlParams.get('gstn');
+        $('#gstn').text(gstno);
         
       
 
@@ -367,6 +367,30 @@
     return formattedDate;
 }
 
+const data = JSON.stringify({
+	key1: 'value',
+	key2: 'value'
+});
+
+
+
+const xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener('readystatechange', function () {
+	if (this.readyState === this.DONE) {
+		console.log(this.responseText);
+        var qrCodeImg = document.getElementById("qr_code"); 
+        qrCodeImg.innerHTML = this.responseText;
+        
+	}
+});
+
+xhr.open('GET', 'https://qr-code-generator20.p.rapidapi.com/generatebasicimage?data=seller%20name:'+sellerName+'%20Total%20Amount:%20'+total_amount+'%20Buyer%20Name:%20'+buyerName+'%20IRN%20no:IRN5389765120%20GST%20no:'+gstno+'%20Date:'+formattedDate+'&size=170');
+xhr.setRequestHeader('X-RapidAPI-Key', 'fc07f16decmsh3dfff90756d9042p19fee7jsna6c4182f531b');
+xhr.setRequestHeader('X-RapidAPI-Host', 'qr-code-generator20.p.rapidapi.com');
+
+xhr.send(data);
 
     </script>
 </body>
