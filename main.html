@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GST e-invoice system</title>
+    <link href="css/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="css/assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="gst_logo.jpg" rel="icon" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Add your custom CSS for responsiveness here */
+        .footer {
+            width: 70%;
+            padding: 10px;
+            /* position: fixed; */
+            bottom: 0;
+        }
+        @media (max-width: 576px) {
+            .footer {
+            width: 100%;
+            padding: 10px;
+            /* position: fixed; */
+            bottom: 0;
+        }
+        }
+    </style>
+</head>
+
+<body ng-app="tdipllp">
+    <div class="" style="background:lavenderblush;" ng-controller="resultscontroller" ng-cloak>
+        <div class="container" style="background:lavender;">
+            <div style="height: 20px;"></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-sm-12">
+                    <div class="card">
+                        <div class="card-body p-5 md-p-5">
+                            <div class="text-center" style="margin-bottom: 30px;">
+                                <h4 class="header-title mt-0 mb-1"><u>Generate e-Invoice</u></h4>
+                                <p class="sub-header mt-2 text-dark">
+                                    Street 14 Geeta Bhavan New Delhi India <br>Tehsil Delhi Near Shanti kunj <br> Mahatma Gandhi Park 18/3 Bharat 110075
+                                </p>
+                                <hr>
+                            </div>
+                            <form method="get" action="bill.html">
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label class="col-form-label" for="gstn" style="font-weight:500;">GSTN:</label>
+                                        <input type="text" class="form-control" name="gstn" id="gstn" placeholder="Enter GST Number" ng-model="gstn" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="col-form-label" for="dog" style="font-weight:500;">Date Of Generation :</label>
+                                        <input type="datetime-local" name="dog" class="form-control" id="dog" ng-model="dog" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">Seller Name:</label>
+                                        <input type="text" name="sellerName" class="form-control" placeholder="Enter Seller Name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">Seller ID:</label>
+                                        <input type="text" name="sellerId" class="form-control" placeholder="Enter Seller ID" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">Buyer Name:</label>
+                                        <input type="text" name="buyerName" class="form-control" placeholder="Enter Buyer Name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">Buyer Phone:</label>
+                                        <input type="text" name="buyerMo" class="form-control" placeholder="Enter Phone No" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">Product 1:</label>
+                                        <input type="text" name="proName1" class="form-control" placeholder="Enter Product Name" required>
+                                    </div>
+                                    <div class="col-md-2 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">Quantity:</label>
+                                        <input type="number" name="qty1" id="qty1" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()" required>
+                                    </div>
+                                    <div class="col-md-2 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">HSN</label>
+                                        <input type="text" name="hsn1" class="form-control" placeholder="HSN" required>
+                                    </div>
+                                    <div class="col-md-2 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;"> Amount</label>
+                                        <input type="number" id="amount1" name="amount1" class="form-control" placeholder="Enter amount" oninput="calculateAmt()" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">Product 2:</label>
+                                        <input type="text" name="proName2" class="form-control" placeholder="Enter Product Name" required>
+                                    </div>
+                                    <div class="col-md-2 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">Quantity:</label>
+                                        <input type="number" name="qty2" id="qty2" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()" required>
+                                    </div>
+                                    <div class="col-md-2 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">HSN</label>
+                                        <input type="text" name="hsn2" class="form-control" placeholder="HSN" required>
+                                    </div>
+                                    <div class="col-md-2 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;"> Amount</label>
+                                        <input type="number" id="amount2" name="amount2" class="form-control" placeholder="Enter amount" oninput="calculateAmt()" required>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">Product 3:</label>
+                                        <input type="text" name="proName3" class="form-control" placeholder="Enter Product Name" required>
+                                    </div>
+                                    <div class="col-md-2 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">Quantity:</label>
+                                        <input type="number" name="qty3" id="qty3" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()" required>
+                                    </div>
+                                    <div class="col-md-2 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">HSN</label>
+                                        <input type="text" name="hsn3" class="form-control" placeholder="HSN" required>
+                                    </div>
+                                    <div class="col-md-2 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;"> Amount</label>
+                                        <input type="number" id="amount3" name="amount3" class="form-control" placeholder="Enter amount" oninput="calculateAmt()" required>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">Product 4:</label>
+                                        <input type="text" name="proName4" class="form-control" placeholder="Enter Product Name" required>
+                                    </div>
+                                    <div class="col-md-2 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">Quantity:</label>
+                                        <input type="number" name="qty4" id="qty4" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()" required>
+                                    </div>
+                                    <div class="col-md-2 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">HSN</label>
+                                        <input type="text" name="hsn4" class="form-control" placeholder="HSN" required>
+                                    </div>
+                                    <div class="col-md-2 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;"> Amount</label>
+                                        <input type="number" id="amount4" name="amount4" class="form-control" placeholder="Enter amount" oninput="calculateAmt()" required>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <!-- Repeat similar structure for other products -->
+                                <div class="row">
+                                    <!-- Remaining product fields -->
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">Email:</label>
+                                        <input type="text" name="email" class="form-control" placeholder="Enter Email" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="col-form-label" style="font-weight:500;">Total Amount</label>
+                                        <input type="text" name="tAmount" class="form-control" id="tamount" readonly placeholder="Enter Total Amount">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="btn btn-primary">Generate</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer text-center">
+        <p>&copy; 2024 GST e-invoice system. All rights reserved. Designed & Developed by Tikendra Sahu </p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-kJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha384-kJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        function calculateAmt() {
+            var amount1 = parseInt(document.getElementById("amount1").value) || 0;
+            var qty1 = parseInt(document.getElementById("qty1").value) || 1;
+            var amount2 = parseInt(document.getElementById("amount2").value) || 0;
+            var qty2 = parseInt(document.getElementById("qty2").value) || 1;
+            var amount3 = parseInt(document.getElementById("amount3").value) || 0;
+            var qty3 = parseInt(document.getElementById("qty3").value) || 1;
+            var amount4 = parseInt(document.getElementById("amount4").value) || 0;
+            var qty4 = parseInt(document.getElementById("qty4").value) || 1;
+
+            var total = amount1 * qty1 + amount2 * qty2 + amount3 * qty3 + amount4 * qty4;
+            document.getElementById("tamount").value = total;
+        }
+
+        
+    </script>
+</body>
+
+</html>
