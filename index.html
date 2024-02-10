@@ -1,192 +1,629 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <title>GST e-invoice system</title>
-    <link href="css/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="css/assets/css/app.css" rel="stylesheet" type="text/css" />
-    <link href="gst_logo.jpg" rel="icon" type="text/css" />
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        /* Add your custom CSS for responsiveness here */
-        .footer {
-            width: 70%;
-            padding: 10px;
-            /* position: fixed; */
-            bottom: 0;
-        }
-        @media (max-width: 576px) {
-            .footer {
-            width: 100%;
-            padding: 10px;
-            /* position: fixed; */
-            bottom: 0;
-        }
-        }
+		body{
+			background-color: #1E0731;
+		}
+		footer{
+			position: absolute;
+			margin-top: 300px;
+		}
+		footer a{
+			color: #F5E53A;
+		}
+		footer img{
+			width: 32px;
+			height: 32px;
+			vertical-align: middle;
+		}
+
+		.wrapper{
+			position: absolute;
+			/* float: right; */
+			margin: 330px 500px;
+		}
+
+		.line{
+			position: absolute;
+			top: 0px;
+			width: 2px;
+			height: 8px;
+			background-color: red;
+		}
+
+		.circle{
+			position: absolute;
+			display: block;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background-color: blue;
+		}
+		.circle-top{
+			top: 0px;
+			left: -3.5px;
+		}
+		.circle-bottom{
+			bottom: 0px;
+			left: -3.5px;
+		}
+
+		.dot{
+			position: absolute;
+			display: block;
+			width: 4px;
+			height: 4px;
+			border-radius: 50%;
+			left: -1.5px;
+		}
+
+		.line1{
+			margin-left: 0px;
+			background-color: #2410CB;
+			-webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+			animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+		}
+		.line1 > span{
+			background-color: #D4141E;
+		}
+		.line1 > .dotted > .dot{
+			background-color: #D4141E;
+		}
+		.line1 > .dotted > .dot-top{
+			top: 0px;
+			-webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+			animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+		}
+		.line1 > .dotted > .dot-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+			animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+		}
+		.line1 > .dotted > .dot-middle-top{
+			top: 0px;
+			-webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+			animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+		}
+		.line1 > .dotted > .dot-middle-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+			animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+		}
+
+		.line2{
+			margin-left: 35px;
+			background-color: #852DF4;
+			-webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+			animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+		}
+		.line2 > span{
+			background-color: #FC7E48;
+		}
+		.line2 > .dotted > .dot{
+			background-color: #FC7E48;
+		}
+		.line2 > .dotted > .dot-top{
+			top: 0px;
+			-webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+			animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+		}
+		.line2 > .dotted > .dot-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+			animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+		}
+		.line2 > .dotted > .dot-middle-top{
+			top: 0px;
+			-webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+			animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+		}
+		.line2 > .dotted > .dot-middle-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+			animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+		}
+
+		.line3{
+			margin-left: 70px;
+			background-color: #F42DF1;
+			-webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+			animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+		}
+		.line3 > span{
+			background-color: #EDEB29;
+		}
+		.line3 > .dotted > .dot{
+			background-color: #EDEB29;
+		}
+		.line3 > .dotted > .dot-top{
+			top: 0px;
+			-webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+			animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+		}
+		.line3 > .dotted > .dot-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+			animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+		}
+		.line3 > .dotted > .dot-middle-top{
+			top: 0px;
+			-webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+			animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+		}
+		.line3 > .dotted > .dot-middle-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+			animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+		}
+
+		.line4{
+			margin-left: 105px;
+			background-color: #F91396;
+			-webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+			animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+		}
+		.line4 > span{
+			background-color: #ACED29;
+		}
+		.line4 > .dotted > .dot{
+			background-color: #ACED29;
+		}
+		.line4 > .dotted > .dot-top{
+			top: 0px;
+			-webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+			animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+		}
+		.line4 > .dotted > .dot-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+			animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+		}
+		.line4 > .dotted > .dot-middle-top{
+			top: 0px;
+			-webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+			animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+		}
+		.line4 > .dotted > .dot-middle-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+			animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+		}
+
+		.line5{
+			margin-left: 140px;
+			background-color: #D4141E;
+			-webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+			animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+		}
+		.line5 > span{
+			background-color: #4EF02B;
+		}
+		.line5 > .dotted > .dot{
+			background-color: #4EF02B;
+		}
+		.line5 > .dotted > .dot-top{
+			top: 0px;
+			-webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+			animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+		}
+		.line5 > .dotted > .dot-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+			animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+		}
+		.line5 > .dotted > .dot-middle-top{
+			top: 0px;
+			-webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+			animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+		}
+		.line5 > .dotted > .dot-middle-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+			animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+		}
+
+		.line6{
+			margin-left: 175px;
+			background-color: #FC7E48;
+			-webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+			animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+		}
+		.line6 > span{
+			background-color: #38E790;
+		}
+		.line6 > .dotted > .dot{
+			background-color: #38E790;
+		}
+		.line6 > .dotted > .dot-top{
+			top: 0px;
+			-webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+			animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+		}
+		.line6 > .dotted > .dot-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+			animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+		}
+		.line6 > .dotted > .dot-middle-top{
+			top: 0px;
+			-webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+			animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+		}
+		.line6 > .dotted > .dot-middle-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+			animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+		}
+
+		.line7{
+			margin-left: 210px;
+			background-color: #EDEB29;
+			-webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+			animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+		}
+		.line7 > span{
+			background-color: #25EACC;
+		}
+		.line7 > .dotted > .dot{
+			background-color: #25EACC;
+		}
+		.line7 > .dotted > .dot-top{
+			top: 0px;
+			-webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+			animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+		}
+		.line7 > .dotted > .dot-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+			animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+		}
+		.line7 > .dotted > .dot-middle-top{
+			top: 0px;
+			-webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+			animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+		}
+		.line7 > .dotted > .dot-middle-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+			animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+		}
+
+		.line8{
+			margin-left: 245px;
+			background-color: #ACED29;
+			-webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+			animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+		}
+		.line8 > span{
+			background-color: #309CDF;
+		}
+		.line8 > .dotted > .dot{
+			background-color: #309CDF;
+		}
+		.line8 > .dotted > .dot-top{
+			top: 0px;
+			-webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+			animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+		}
+		.line8 > .dotted > .dot-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+			animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+		}
+		.line8 > .dotted > .dot-middle-top{
+			top: 0px;
+			-webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+			animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+		}
+		.line8 > .dotted > .dot-middle-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+			animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+		}
+
+		.line9{
+			margin-left: 280px;
+			background-color: #4EF02B;
+			-webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+			animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+		}
+		.line9 > span{
+			background-color: #2544E7;
+		}
+		.line9 > .dotted > .dot{
+			background-color: #2544E7;
+		}
+		.line9 > .dotted > .dot-top{
+			top: 0px;
+			-webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+			animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+		}
+		.line9 > .dotted > .dot-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+			animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+		}
+		.line9 > .dotted > .dot-middle-top{
+			top: 0px;
+			-webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+			animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+		}
+		.line9 > .dotted > .dot-middle-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+			animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+		}
+
+		.line10{
+			margin-left: 315px;
+			background-color: #38E790;
+			-webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+			animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+		}
+		.line10 > span{
+			background-color: #852DF4;
+		}
+		.line10 > .dotted > .dot{
+			background-color: #852DF4;
+		}
+		.line10 > .dotted > .dot-top{
+			top: 0px;
+			-webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+			animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+		}
+		.line10 > .dotted > .dot-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+			animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+		}
+		.line10 > .dotted > .dot-middle-top{
+			top: 0px;
+			-webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+			animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+		}
+		.line10 > .dotted > .dot-middle-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+			animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+		}
+
+		.line11{
+			margin-left: 350px;
+			background-color: #25EACC;
+			-webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+			animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+		}
+		.line11 > span{
+			background-color: #F42DF1;
+		}
+		.line11 > .dotted > .dot{
+			background-color: #F42DF1;
+		}
+		.line11 > .dotted > .dot-top{
+			top: 0px;
+			-webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+			animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+
+		}
+		.line11 > .dotted > .dot-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+			animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+		}
+		.line11 > .dotted > .dot-middle-top{
+			top: 0px;
+			-webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+			animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+		}
+		.line11 > .dotted > .dot-middle-bottom{
+			bottom: 0px;
+			-webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+			animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+		}
+
+		@-webkit-keyframes line{
+			0%{height: 4px; top: 0px; left: 0px; -webkit-transform: rotate(-65deg)}
+			10%{height: 220px; top: -110px; left: 15px;}
+			45%{height: 200px; top: -100px; left: 25px;}
+			70%{height: 8px; top: 0px; left: 25px; -webkit-transform: rotate(0deg);}
+			100%{height: 8px; top: 0px; left: 15px; -webkit-transform: rotate(0deg);}
+		}
+		@-webkit-keyframes dot-top{
+			0%{top: -30px}
+			10%{top: -30px;}
+			45%{top: -25px;}
+			60%{top: 0px;}
+			100%{top: 0px;}
+		}
+		@-webkit-keyframes dot-bottom{
+			0%{bottom: -30px}
+			10%{bottom: -30px;}
+			45%{bottom: -25px;}
+			60%{bottom: 0px;}
+			100%{bottom: 0px;}
+		}
+		@-webkit-keyframes dot-middle-top{
+			0%{}
+			10%{}
+			45%{top: 98px;}
+			70%{top: -50px;}
+			85%{top: 0px;}
+			100%{top: 0px;}
+		}
+		@-webkit-keyframes dot-middle-bottom{
+			0%{}
+			10%{}
+			45%{bottom: 98px;}
+			70%{bottom: -50px;}
+			85%{bottom: 0px;}
+			100%{bottom: 0px;}
+		}
+		
+		@keyframes line{
+			0%{height: 4px; top: 0px; left: 0px; transform: rotate(-65deg)}
+			10%{height: 220px; top: -110px; left: 15px;}
+			45%{height: 200px; top: -100px; left: 25px;}
+			70%{height: 8px; top: 0px; left: 25px; transform: rotate(0deg);}
+			100%{height: 8px; top: 0px; left: 15px; transform: rotate(0deg);}
+		}
+		@keyframes dot-top{
+			0%{top: -30px}
+			10%{top: -30px;}
+			45%{top: -25px;}
+			60%{top: 0px;}
+			100%{top: 0px;}
+		}
+		@keyframes dot-bottom{
+			0%{bottom: -30px}
+			10%{bottom: -30px;}
+			45%{bottom: -25px;}
+			60%{bottom: 0px;}
+			100%{bottom: 0px;}
+		}
+		@keyframes dot-middle-top{
+			0%{}
+			10%{}
+			45%{top: 78px;}
+			70%{top: -50px;}
+			85%{top: 0px;}
+			100%{top: 0px;}
+		}
+		@keyframes dot-middle-bottom{
+			0%{}
+			10%{}
+			45%{bottom: 78px;}
+			70%{bottom: -50px;}
+			85%{bottom: 0px;}
+			100%{bottom: 0px;}
+		}
     </style>
 </head>
-
-<body ng-app="tdipllp">
-    <div class="" style="background:lavenderblush;" ng-controller="resultscontroller" ng-cloak>
-        <div class="container" style="background:lavender;">
-            <div style="height: 20px;"></div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-md-10 col-sm-12">
-                    <div class="card">
-                        <div class="card-body p-5 md-p-5">
-                            <div class="text-center" style="margin-bottom: 30px;">
-                                <h4 class="header-title mt-0 mb-1"><u>Generate e-Invoice</u></h4>
-                                <p class="sub-header mt-2 text-dark">
-                                    Street 14 Geeta Bhavan New Delhi India <br>Tehsil Delhi Near Shanti kunj <br> Mahatma Gandhi Park 18/3 Bharat 110075
-                                </p>
-                                <hr>
-                            </div>
-                            <form method="get" action="bill.html">
-                                <div class="row">
-                                    <div class="col-md-6 mb-4">
-                                        <label class="col-form-label" for="gstn" style="font-weight:500;">GSTN:</label>
-                                        <input type="text" class="form-control" name="gstn" id="gstn" placeholder="Enter GST Number" ng-model="gstn" required>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <label class="col-form-label" for="dog" style="font-weight:500;">Date Of Generation :</label>
-                                        <input type="datetime-local" name="dog" class="form-control" id="dog" ng-model="dog" required>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">Seller Name:</label>
-                                        <input type="text" name="sellerName" class="form-control" placeholder="Enter Seller Name" required>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">Seller ID:</label>
-                                        <input type="text" name="sellerId" class="form-control" placeholder="Enter Seller ID" required>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">Buyer Name:</label>
-                                        <input type="text" name="buyerName" class="form-control" placeholder="Enter Buyer Name" required>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">Buyer Phone:</label>
-                                        <input type="text" name="buyerMo" class="form-control" placeholder="Enter Phone No" required>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">Product 1:</label>
-                                        <input type="text" name="proName1" class="form-control" placeholder="Enter Product Name" required>
-                                    </div>
-                                    <div class="col-md-2 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">Quantity:</label>
-                                        <input type="number" name="qty1" id="qty1" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()" required>
-                                    </div>
-                                    <div class="col-md-2 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">HSN</label>
-                                        <input type="text" name="hsn1" class="form-control" placeholder="HSN" required>
-                                    </div>
-                                    <div class="col-md-2 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;"> Amount</label>
-                                        <input type="number" id="amount1" name="amount1" class="form-control" placeholder="Enter amount" oninput="calculateAmt()" required>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">Product 2:</label>
-                                        <input type="text" name="proName2" class="form-control" placeholder="Enter Product Name" required>
-                                    </div>
-                                    <div class="col-md-2 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">Quantity:</label>
-                                        <input type="number" name="qty2" id="qty2" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()" required>
-                                    </div>
-                                    <div class="col-md-2 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">HSN</label>
-                                        <input type="text" name="hsn2" class="form-control" placeholder="HSN" required>
-                                    </div>
-                                    <div class="col-md-2 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;"> Amount</label>
-                                        <input type="number" id="amount2" name="amount2" class="form-control" placeholder="Enter amount" oninput="calculateAmt()" required>
-                                    </div>
-                                    
-                                    <div class="col-md-6 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">Product 3:</label>
-                                        <input type="text" name="proName3" class="form-control" placeholder="Enter Product Name" required>
-                                    </div>
-                                    <div class="col-md-2 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">Quantity:</label>
-                                        <input type="number" name="qty3" id="qty3" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()" required>
-                                    </div>
-                                    <div class="col-md-2 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">HSN</label>
-                                        <input type="text" name="hsn3" class="form-control" placeholder="HSN" required>
-                                    </div>
-                                    <div class="col-md-2 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;"> Amount</label>
-                                        <input type="number" id="amount3" name="amount3" class="form-control" placeholder="Enter amount" oninput="calculateAmt()" required>
-                                    </div>
-                                    
-                                    <div class="col-md-6 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">Product 4:</label>
-                                        <input type="text" name="proName4" class="form-control" placeholder="Enter Product Name" required>
-                                    </div>
-                                    <div class="col-md-2 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">Quantity:</label>
-                                        <input type="number" name="qty4" id="qty4" class="form-control" placeholder="Qty" value="1" oninput="calculateAmt()" required>
-                                    </div>
-                                    <div class="col-md-2 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">HSN</label>
-                                        <input type="text" name="hsn4" class="form-control" placeholder="HSN" required>
-                                    </div>
-                                    <div class="col-md-2 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;"> Amount</label>
-                                        <input type="number" id="amount4" name="amount4" class="form-control" placeholder="Enter amount" oninput="calculateAmt()" required>
-                                    </div>
-                                    
-                                    
-                                </div>
-                                <!-- Repeat similar structure for other products -->
-                                <div class="row">
-                                    <!-- Remaining product fields -->
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">Email:</label>
-                                        <input type="text" name="email" class="form-control" placeholder="Enter Email" required>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <label class="col-form-label" style="font-weight:500;">Total Amount</label>
-                                        <input type="text" name="tAmount" class="form-control" id="tamount" readonly placeholder="Enter Total Amount">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 text-center">
-                                        <button type="submit" class="btn btn-primary">Generate</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+<body>
+        <div class="wrapper">
+            <div class="line line1">
+                <span class="circle circle-top"></span>
+                <div class="dotted">
+                    <span class="dot dot-top"></span>
+                    <span class="dot dot-middle-top"></span>
+                    <span class="dot dot-middle-bottom"></span>
+                    <span class="dot dot-bottom"></span>
                 </div>
+                <span class="circle circle-bottom"></span>
             </div>
+            <div class="line line2">
+                <span class="circle circle-top"></span>
+                <div class="dotted">
+                    <span class="dot dot-top"></span>
+                    <span class="dot dot-middle-top"></span>
+                    <span class="dot dot-middle-bottom"></span>
+                    <span class="dot dot-bottom"></span>
+                </div>
+                <span class="circle circle-bottom"></span>
+            </div>
+            <div class="line line3">
+                <span class="circle circle-top"></span>
+                <div class="dotted">
+                    <span class="dot dot-top"></span>
+                    <span class="dot dot-middle-top"></span>
+                    <span class="dot dot-middle-bottom"></span>
+                    <span class="dot dot-bottom"></span>
+                </div>
+                <span class="circle circle-bottom"></span>
+            </div>
+            <div class="line line4">
+                <span class="circle circle-top"></span>
+                <div class="dotted">
+                    <span class="dot dot-top"></span>
+                    <span class="dot dot-middle-top"></span>
+                    <span class="dot dot-middle-bottom"></span>
+                    <span class="dot dot-bottom"></span>
+                </div>
+                <span class="circle circle-bottom"></span>
+            </div>
+            <div class="line line5">
+                <span class="circle circle-top"></span>
+                <div class="dotted">
+                    <span class="dot dot-top"></span>
+                    <span class="dot dot-middle-top"></span>
+                    <span class="dot dot-middle-bottom"></span>
+                    <span class="dot dot-bottom"></span>
+                </div>
+                <span class="circle circle-bottom"></span>
+            </div>
+            <div class="line line6">
+                <span class="circle circle-top"></span>
+                <div class="dotted">
+                    <span class="dot dot-top"></span>
+                    <span class="dot dot-middle-top"></span>
+                    <span class="dot dot-middle-bottom"></span>
+                    <span class="dot dot-bottom"></span>
+                </div>
+                <span class="circle circle-bottom"></span>
+            </div>
+            <div class="line line7">
+                <span class="circle circle-top"></span>
+                <div class="dotted">
+                    <span class="dot dot-top"></span>
+                    <span class="dot dot-middle-top"></span>
+                    <span class="dot dot-middle-bottom"></span>
+                    <span class="dot dot-bottom"></span>
+                </div>
+                <span class="circle circle-bottom"></span>
+            </div>
+            <div class="line line8">
+                <span class="circle circle-top"></span>
+                <div class="dotted">
+                    <span class="dot dot-top"></span>
+                    <span class="dot dot-middle-top"></span>
+                    <span class="dot dot-middle-bottom"></span>
+                    <span class="dot dot-bottom"></span>
+                </div>
+                <span class="circle circle-bottom"></span>
+            </div>
+            <div class="line line9">
+                <span class="circle circle-top"></span>
+                <div class="dotted">
+                    <span class="dot dot-top"></span>
+                    <span class="dot dot-middle-top"></span>
+                    <span class="dot dot-middle-bottom"></span>
+                    <span class="dot dot-bottom"></span>
+                </div>
+                <span class="circle circle-bottom"></span>
+            </div>
+            <div class="line line10">
+                <span class="circle circle-top"></span>
+                <div class="dotted">
+                    <span class="dot dot-top"></span>
+                    <span class="dot dot-middle-top"></span>
+                    <span class="dot dot-middle-bottom"></span>
+                    <span class="dot dot-bottom"></span>
+                </div>
+                <span class="circle circle-bottom"></span>
+            </div>
+            <div class="line line11">
+                <span class="circle circle-top"></span>
+                <div class="dotted">
+                    <span class="dot dot-top"></span>
+                    <span class="dot dot-middle-top"></span>
+                    <span class="dot dot-middle-bottom"></span>
+                    <span class="dot dot-bottom"></span>
+                </div>
+                <span class="circle circle-bottom"></span>
+            </div>
+       
         </div>
-    </div>
-    <footer class="footer text-center">
-        <p>&copy; 2024 GST e-invoice system. All rights reserved. Designed & Developed by Tikendra Sahu </p>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-kJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha384-kJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script>
-        function calculateAmt() {
-            var amount1 = parseInt(document.getElementById("amount1").value) || 0;
-            var qty1 = parseInt(document.getElementById("qty1").value) || 1;
-            var amount2 = parseInt(document.getElementById("amount2").value) || 0;
-            var qty2 = parseInt(document.getElementById("qty2").value) || 1;
-            var amount3 = parseInt(document.getElementById("amount3").value) || 0;
-            var qty3 = parseInt(document.getElementById("qty3").value) || 1;
-            var amount4 = parseInt(document.getElementById("amount4").value) || 0;
-            var qty4 = parseInt(document.getElementById("qty4").value) || 1;
-
-            var total = amount1 * qty1 + amount2 * qty2 + amount3 * qty3 + amount4 * qty4;
-            document.getElementById("tamount").value = total;
-        }
-    </script>
+        <!-- <footer>
+            <p style="color: #fff">Inspired by <a href="https://dribbble.com/shots/1763719-DNA-GIF">Handel Eugene <img src="https://d13yacurqjgara.cloudfront.net/assets/dribbble-ball-dnld-5992b20594860fdfef86a503773447ae.png" alt="dribble"></a></p>
+        </footer> -->
+    </body>
+        
+    </body>
+<script>
+function redirectPage() {
+    window.location.href = 'main.html';
+}
+setTimeout(redirectPage, 2000);
+</script>
 </body>
-
 </html>
